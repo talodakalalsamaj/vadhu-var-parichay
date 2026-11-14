@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">कलाल समाज वधू-वर परिचय मेळावा २०२६-२०२७</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+    <!-- html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c', 700: '#c2410c' },
+                        maroon: { 50: '#fdf2f2', 800: '#7f1d1d', 900: '#450a0a' },
+                        gold: { 400: '#fbbf24', 500: '#d97706' }
+                    },
+                    fontFamily: { mukta: ['Mukta', 'sans-serif'], yatra: ['"Yatra One"', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Mukta', sans-serif; background-color: #fffaf0; }
+        .tradition-border { border: 4px double #eb3737; outline: 1px solid #e7820e; outline-offset: -2px; }
+        .step-page { display: none; }
+        .step-page.active { display: block; }
+
+        /* Force clean rendering of complex Devanagari text */
+        .shree-fix {
+            font-family: 'Mukta', Arial, sans-serif !important;
+            letter-spacing: normal !important;
+        }
+
+        #biodata-card-container {
+            width: 100%;
+            max-width: 196mm;
+            min-height: 287mm;
+            max-height: 287mm;
+            margin: 0 auto;
+            background: white;
+            box-sizing: border-box;
+            padding: 10mm;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; margin: 0; padding: 0; }
+            @page {
+                size: A4 portrait;
+                margin: 25mm;
+            }
+            #biodata-card-container {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+                width: 196mm !important;
+                height: 287mm !important;
+                max-height: 287mm !important;
+                overflow: hidden !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-maroon-900 text-gold-400 py-2 px-4 text-center text-xs sm:text-sm font-semibold border-b-2 border-gold-500 shadow-md flex justify-between items-center w-full">
+        <div class="flex gap-3 sm:gap-6">
+            <span>🚩 <span data-i18n="motto1">एकता</span></span>
+            <span>🔥 <span data-i18n="motto2">विश्वास</span></span>
+            <span>⚖️ <span data-i18n="motto3">जबाबदारी</span></span>
+        </div>
+        <div class="flex gap-3 sm:gap-6 items-center">
+            <span>🙏 <span data-i18n="motto4">जय सहस्रबाहु</span></span>
+            <span>🌸 <span class="shree-fix" data-i18n="motto5">श्री गणेशाय नमः</span></span>
+            <span>🌺 <span data-i18n="motto6">जय कलाल</span></span>
+            <div>
+                <select id="langSelect" class="bg-gold-500 text-maroon-900 font-extrabold px-2 py-0.5 rounded-full text-xs outline-none cursor-pointer shadow border border-white" onchange="changeLanguage()">
+                    <option value="mr">मराठी</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Banner -->
+    <header class="bg-gradient-to-r from-maroon-900 via-saffron-700 to-maroon-900 text-white shadow-xl border-b-4 border-gold-500 py-6 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full p-1 border-2 border-gold-400 shadow-md flex items-center justify-center">
+                    <i class="fa-solid fa-om text-maroon-800 text-4xl sm:text-5xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl md:text-2xl font-extrabold text-gold-400 font-yatra tracking-wide" data-i18n="orgName">
+                        कलाल समाज वधू-वर परिचय मेळावा २०२६-२०२७
+                    </h1>
+                    <div class="inline-block bg-gold-500 text-maroon-900 font-bold px-3 py-0.5 rounded-full text-xs mt-1 shadow-sm" data-i18n="regNoBadge">
+                        रजि.नं.: अ-३५८-धुळे
+                    </div>
+                </div>
+            </div>
+            <div class="bg-maroon-900/90 border border-gold-500/80 px-4 py-2 rounded-lg text-center shadow-inner max-w-[300px]">
+                <span class="text-gold-600 block font-extrabold text-xl" data-i18n="organizedBy">आयोजक</span>
+                <span class="block font-bold text-sm sm:text-base text-white leading-tight mt-1" data-i18n="eventName">कलाल समाज पंच, कलाल समाज महिला मंडळ आणि कलाल समाज युवक मंडळ, तळोदा</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="bg-maroon-900 border-b-2 border-gold-500 sticky top-0 z-40 shadow-md no-print">
+        <div class="max-w-5xl mx-auto flex justify-center space-x-2 sm:space-x-6 p-2">
+            <button onclick="switchStep(1)" id="tab-1" class="px-5 py-2 rounded-lg font-extrabold text-sm sm:text-base transition-all bg-saffron-600 text-white shadow-md">
+                <i class="fa-solid fa-house mr-1"></i> <span data-i18n="tabHome">मुख्य पृष्ठ</span>
+            </button>
+            <button onclick="switchStep(2)" id="tab-2" class="px-5 py-2 rounded-lg font-extrabold text-sm sm:text-base text-white hover:bg-saffron-600 transition-all">
+                <i class="fa-solid fa-pen-to-square mr-1"></i> <span data-i18n="tabRegister">नोंदणी फॉर्म</span>
+            </button>
+            <button onclick="switchStep(3)" id="tab-3" class="px-5 py-2 rounded-lg font-extrabold text-sm sm:text-base text-white hover:bg-saffron-600 transition-all opacity-80">
+                <i class="fa-solid fa-id-card mr-1"></i> <span data-i18n="tabCard">परिचय कार्ड</span> <i class="fa-solid fa-lock text-xs ml-1" id="lockIcon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-5xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- PAGE 1: LANDING PAGE -->
+        <section id="page-1" class="step-page active space-y-6">
+            <div class="bg-white rounded-2xl shadow-xl border-2 border-gold-400 overflow-hidden text-center">
+                <div class="bg-gradient-to-r from-maroon-900 via-saffron-700 to-maroon-900 p-8 text-white">
+                    <h2 class="text-2xl sm:text-5xl font-extrabold text-gold-400 mb-3 shree-fix" data-i18n="heroGanesh">श्री गणेशाय नमः</h2>
+                    <h3 class="text-xl sm:text-3xl font-extrabold mb-3 leading-relaxed text-yellow-100" data-i18n="heroHeading">
+                        पंचक्रोशीतील कलाल समाजात योग्य जीवनसाथीच्या शोधासाठी आयोजित भव्य वधू-वर वैवाहिक परिचय मेळावा
+                    </h3>
+                    <p class="text-orange-100 text-base sm:text-lg max-w-3xl mx-auto font-medium" data-i18n="heroSub">
+                        आपल्या कलाल समाजातील सुयोग्य वधू-वरांसाठी एकत्र येऊन योग्य जीवनसाथी निवडण्याचे हक्काचे व्यासपीठ.
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-6 bg-saffron-50">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-saffron-200 shadow-sm">
+                            <i class="fa-solid fa-calendar-days text-saffron-600 text-3xl mb-2"></i>
+                            <h4 class="text-lg font-bold text-maroon-900" data-i18n="lblDate">आयोजन दिनांक</h4>
+                            <p class="text-lg font-bold text-gray-700" data-i18n="valDate">लवकर कळवण्यात येईल</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-saffron-200 shadow-sm">
+                            <i class="fa-solid fa-location-dot text-saffron-600 text-3xl mb-2"></i>
+                            <h4 class="text-lg font-bold text-maroon-900" data-i18n="lblVenue">स्थान</h4>
+                            <p class="text-lg font-bold text-gray-700" data-i18n="valVenue">कलाल समाज मंगल कार्यालय, तळोदा जि. नंदुरबार</p>
+                        </div>
+                    </div>
+
+                    <button onclick="switchStep(2)" class="px-8 py-4 bg-gradient-to-r from-saffron-600 to-maroon-800 text-white font-extrabold rounded-xl text-lg shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2 mx-auto border-2 border-gold-400">
+                        <i class="fa-solid fa-pen-to-square"></i> <span data-i18n="btnStartReg">ऑनलाइन नोंदणी करा (Fill Form)</span>
+                    </button>
+
+                    <!-- President Highlight Badge -->
+                    <div class="bg-white border-2 border-gold-500 p-4 rounded-2xl shadow-md max-w-xl mx-auto text-center">
+                        <span class="text-lg font-bold text-maroon-900 uppercase tracking-wider block mb-1" data-i18n="lblPresidentTitle">:: आपला अध्यक्ष ::</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-saffron-600 tracking-wide" data-i18n="valPresidentName">
+                            श्री. संजय पुरुषोत्तमसा कलाल
+                        </h3>
+                        <div class="mt-2 inline-flex items-center gap-1.5 bg-saffron-50 px-3 py-1 rounded-full border border-saffron-200 text-lg font-bold text-maroon-900">
+                            <i class="fa-solid fa-phone text-saffron-600 text-xs"></i>
+                            <a href="tel:9158339910" class="hover:underline" data-i18n="valPresidentMobile">9158339910</a>
+                        </div>
+                    </div>
+
+                    <!-- Important Notice Box -->
+                    <div class="bg-amber-50 border-2 border-amber-400 rounded-2xl p-5 text-left max-w-3xl mx-auto shadow-sm">
+                        <h4 class="font-extrabold text-maroon-900 text-base sm:text-lg mb-2 flex items-center gap-2 border-b border-amber-300 pb-2">
+                            <i class="fa-solid fa-bullhorn text-saffron-600"></i> <span data-i18n="lblNoticeHeader">महत्वाची सूचना / विशेष विनंती:</span>
+                        </h4>
+                        <p class="text-xs sm:text-sm font-awesome text-gray-800 leading-relaxed" data-i18n="valNoticeBody">
+                            सर्व समाज बांधवांना विनंती आहे की कौटुंबिक फॉर्ममधील माहिती अचूक घ्यावी. माहिती अद्ययावत ठेवण्यासाठी तसेच काही बदल किंवा दुरुस्ती असल्यास दिलेल्या कोणत्याही एका व्यक्तीशी संपर्क साधून आवश्यक ती दुरुस्ती करुन घ्यावी.
+                        </p>
+                        <p class="text-xs sm:text-sm font-extrabold text-maroon-800 leading-relaxed bg-amber-100/70 p-2 rounded-lg border border-amber-300 mt-2" data-i18n="valNoticeLine1">
+                            वधू-वर परिचय मेळाव्याच्या कार्यक्रमास सर्व समाज बांधवांनी उपस्थित राहणे अनिवार्य आहे. या कार्यक्रमास यशस्वी करण्यासाठी सर्व अर्जदारांची प्रत्यक्ष उपस्थिती बंधनकारक आहे.
+                        </p>
+                    </div>
+
+                    <!-- 5 Key Contact Persons Section -->
+                    <div class="bg-white p-6 rounded-2xl border-2 border-saffron-300 shadow-md max-w-3xl mx-auto text-left">
+                        <h4 class="font-extrabold text-maroon-900 text-base sm:text-lg mb-4 text-center border-b-2 border-saffron-200 pb-2 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-address-book text-saffron-600"></i> <span data-i18n="lblContactsHeader">संपर्कासाठी व्यक्तींची नावे व मोबाईल क्रमांक:</span>
+                        </h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-bold">
+                            <div class="flex items-center justify-between p-3 bg-saffron-50 rounded-xl border border-saffron-200">
+                                <span class="text-gray-800"><span class="w-6 h-6 inline-flex items-center justify-center bg-maroon-900 text-gold-400 rounded-full text-xs font-bold mr-2">१</span> <span data-i18n="contact1Name">श्री. राजेंद्रभाऊसा कलाल</span></span>
+                                <a href="tel:9404447563" class="text-saffron-700 font-extrabold hover:underline flex items-center gap-1"><i class="fa-solid fa-phone text-xs"></i> 9404447563</a>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-saffron-50 rounded-xl border border-saffron-200">
+                                <span class="text-gray-800"><span class="w-6 h-6 inline-flex items-center justify-center bg-maroon-900 text-gold-400 rounded-full text-xs font-bold mr-2">२</span> <span data-i18n="contact2Name">श्री. किशोरभाऊसा कलाल</span></span>
+                                <a href="tel:8275589916" class="text-saffron-700 font-extrabold hover:underline flex items-center gap-1"><i class="fa-solid fa-phone text-xs"></i> 8275589916</a>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-saffron-50 rounded-xl border border-saffron-200">
+                                <span class="text-gray-800"><span class="w-6 h-6 inline-flex items-center justify-center bg-maroon-900 text-gold-400 rounded-full text-xs font-bold mr-2">३</span> <span data-i18n="contact3Name">श्री. दुगेशसा कलाल</span></span>
+                                <a href="tel:9730304474" class="text-saffron-700 font-extrabold hover:underline flex items-center gap-1"><i class="fa-solid fa-phone text-xs"></i> 9730304474</a>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-saffron-50 rounded-xl border border-saffron-200">
+                                <span class="text-gray-800"><span class="w-6 h-6 inline-flex items-center justify-center bg-maroon-900 text-gold-400 rounded-full text-xs font-bold mr-2">४</span> <span data-i18n="contact4Name">श्री. लकेशसा कलाल</span></span>
+                                <a href="tel:8888189005" class="text-saffron-700 font-extrabold hover:underline flex items-center gap-1"><i class="fa-solid fa-phone text-xs"></i> 8888189005</a>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-saffron-50 rounded-xl border border-saffron-200 sm:col-span-2 sm:max-w-[calc(50%-0.375rem)] sm:mx-auto w-full">
+                                <span class="text-gray-800"><span class="w-6 h-6 inline-flex items-center justify-center bg-maroon-900 text-gold-400 rounded-full text-xs font-bold mr-2">५</span> <span data-i18n="contact5Name">श्री. कमलेशसा कलाल</span></span>
+                                <a href="tel:9860405477" class="text-saffron-700 font-extrabold hover:underline flex items-center gap-1"><i class="fa-solid fa-phone text-xs"></i> 9860405477</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: REGISTRATION FORM -->
+        <section id="page-2" class="step-page space-y-6">
+            <div class="bg-white rounded-2xl shadow-xl border-2 border-maroon-800 overflow-hidden">
+                <div class="bg-gradient-to-r from-maroon-900 via-saffron-700 to-maroon-900 text-gold-400 p-4 sm:p-6 text-center">
+                    <h2 class="text-xl sm:text-2xl font-extrabold" data-i18n="formHeaderTitle">वैवाहिक परिचय पत्र (BIODATA) नोंदणी</h2>
+                    <p class="text-xs sm:text-sm text-white" data-i18n="formHeaderSub">कृपया खालील सर्व माहिती व्यवस्थित भरा</p>
+                </div>
+
+                <form id="biodataForm" onsubmit="submitBiodata(event)" class="p-4 sm:p-8 space-y-8 bg-saffron-50/30">
+                    
+                    <!-- 1. वैयक्तिक माहिती -->
+                    <fieldset class="border-2 border-saffron-200 p-4 rounded-xl bg-white shadow-sm">
+                        <legend class="text-lg font-extrabold text-maroon-900 px-3 bg-saffron-100 rounded-lg border border-saffron-300">
+                            <i class="fa-solid fa-user text-saffron-600"></i> <span data-i18n="sec1Title">१. वैयक्तिक माहिती (Personal Details)</span>
+                        </legend>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-3">
+                            <div class="col-span-1 sm:col-span-2 md:col-span-3">
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblName">संपूर्ण नाव (Full Name) *</label>
+                                <input type="text" id="fullName" required placeholder="उदा. राहुल सुरेश कलाल" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-saffron-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblDob">जन्मतारीख (Date of Birth) *</label>
+                                <input type="date" id="dob" required class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblBirthTime">जन्म वेळ (Birth Time) *</label>
+                                <input type="time" id="birthTime" required class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblBirthPlace">जन्म स्थळ (Birth Place) *</label>
+                                <input type="text" id="birthPlace" required placeholder="उदा. तळोदा" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblHeight">उंची (Height) *</label>
+                                <input type="text" id="height" required placeholder="उदा. ५ फूट ६ इंच" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblBlood">रक्तगट (Blood Group) *</label>
+                                <select id="bloodGroup" required class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg bg-white">
+                                    <option value="" data-i18n="optSelect">-- निवडा --</option>
+                                    <option value="A+">A+</option><option value="A-">A-</option>
+                                    <option value="B+">B+</option><option value="B-">B-</option>
+                                    <option value="O+">O+</option><option value="O-">O-</option>
+                                    <option value="AB+">AB+</option><option value="AB-">AB-</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblMarital">वैवाहिक स्थिती (Marital Status) *</label>
+                                <select id="maritalStatus" required class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg bg-white">
+                                    <option value="अविवाहित" data-i18n="optUnmarried">अविवाहित (Unmarried)</option>
+                                    <option value="घटस्फोटित" data-i18n="optDivorced">घटस्फोटित (Divorced)</option>
+                                    <option value="विधवा/विधुर" data-i18n="optWidow">विधवा / विधुर (Widow/Widower)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblGotra">गोत्र (Gotra) *</label>
+                                <input type="text" id="gotra" required placeholder="उदा. कश्यप" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblKuldaivat">कुलदैवत (Kuldaivat) *</label>
+                                <input type="text" id="kuldaivat" required placeholder="उदा. तुळजाभवानी" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblManglik">मांगलिक (Manglik) *</label>
+                                <select id="manglik" required class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg bg-white">
+                                    <option value="नाही" data-i18n="optNo">नाही (No)</option>
+                                    <option value="होय" data-i18n="optYes">होय (Yes)</option>
+                                    <option value="माहिती नाही" data-i18n="optUnknown">माहिती नाही (Unknown)</option>
+                                </select>
+                            </div>
+                            <div class="col-span-1 sm:col-span-2 md:col-span-3 bg-saffron-50 p-4 rounded-xl border border-saffron-300">
+                                <label class="block text-sm font-bold text-maroon-900 mb-1" data-i18n="lblPhoto">पासपोर्ट साईझ फोटो अपलोड करा (कमाल ५ MB) *</label>
+                                <input type="file" id="photoFile" accept="image/*" onchange="handlePhotoUpload(event)" required class="w-full p-2 bg-white border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 2. शिक्षण व नोकरी -->
+                    <fieldset class="border-2 border-saffron-200 p-4 rounded-xl bg-white shadow-sm">
+                        <legend class="text-lg font-extrabold text-maroon-900 px-3 bg-saffron-100 rounded-lg border border-saffron-300">
+                            <i class="fa-solid fa-graduation-cap text-saffron-600"></i> <span data-i18n="sec2Title">२. शिक्षण आणि नोकरी (Education & Career)</span>
+                        </legend>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblEdu">शिक्षण (Education) *</label>
+                                <input type="text" id="education" required placeholder="उदा. B.E. Computer" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblOcc">नोकरी / व्यवसाय (Occupation) *</label>
+                                <input type="text" id="occupation" required placeholder="उदा. इंजिनिअर / व्यवसाय" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblIncome">वार्षिक उत्पन्न (Annual Income) *</label>
+                                <input type="text" id="income" required placeholder="उदा. ₹ ६ लाख" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 3. कौटुंबिक माहिती -->
+                    <fieldset class="border-2 border-saffron-200 p-4 rounded-xl bg-white shadow-sm">
+                        <legend class="text-lg font-extrabold text-maroon-900 px-3 bg-saffron-100 rounded-lg border border-saffron-300">
+                            <i class="fa-solid fa-people-roof text-saffron-600"></i> <span data-i18n="sec3Title">३. कौटुंबिक व संपर्क माहिती (Family & Contact)</span>
+                        </legend>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblFather">वडिलांचे नाव (Father's Name) *</label>
+                                <input type="text" id="fatherName" required placeholder="वडिलांचे पूर्ण नाव" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblFatherOcc">वडिलांचा व्यवसाय (Father's Occupation)</label>
+                                <input type="text" id="fatherOccupation" placeholder="उदा. शेती / व्यवसाय" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblMother">आईचे नाव (Mother's Name) *</label>
+                                <input type="text" id="motherName" required placeholder="आईचे पूर्ण नाव" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblMotherOcc">आईचा व्यवसाय (Mother's Occupation)</label>
+                                <input type="text" id="motherOccupation" placeholder="उदा. गृहिणी" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblSiblings">बहीण / भाऊ (Siblings) *</label>
+                                <input type="text" id="siblings" required placeholder="उदा. १ भाऊ, १ बहीण" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblSiblingsEdu">भाऊ/बहिणींचे शिक्षण (Siblings' Education)</label>
+                                <input type="text" id="siblingsEdu" placeholder="उदा. Graduate" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblUncle">मामाचे नाव (Maternal Uncle Name) *</label>
+                                <input type="text" id="maternalUncle" required placeholder="मामाचे पूर्ण नाव" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblKul">मामाचे कुळ / आडनाव (Maternal Uncle Surname) *</label>
+                                <input type="text" id="maternalKul" required placeholder="मामाचे आडनाव / गाव" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+
+                            <div class="col-span-1 sm:col-span-2">
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblAddress">संपूर्ण पत्ता (Full Address) *</label>
+                                <textarea id="address" rows="2" required placeholder="घर क्र., रस्ता, तळोदा, जि. नंदुरबार" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblMobile">मोबाईल नंबर (Mobile Number) *</label>
+                                <input type="tel" id="mobile" required placeholder="9876543210" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblWhatsapp">व्हॉट्सॲप नंबर (WhatsApp Number)</label>
+                                <input type="tel" id="whatsapp" placeholder="9876543210 (पर्यायी)" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 4. जीवनसाथी अपेक्षा -->
+                    <fieldset class="border-2 border-saffron-200 p-4 rounded-xl bg-white shadow-sm">
+                        <legend class="text-lg font-extrabold text-maroon-900 px-3 bg-saffron-100 rounded-lg border border-saffron-300">
+                            <i class="fa-solid fa-heart text-saffron-600"></i> <span data-i18n="sec4Title">४. जीवनसाथी अपेक्षा (Partner Expectations)</span>
+                        </legend>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblExpEdu">अपेक्षित शिक्षण (Expected Education)</label>
+                                <input type="text" id="expEdu" placeholder="उदा. पदवीधर" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblExpOcc">अपेक्षित व्यवसाय/नोकरी (Expected Occupation)</label>
+                                <input type="text" id="expOcc" placeholder="उदा. नोकरी" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                            </div>
+                            <div class="col-span-1 sm:col-span-2">
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblExpOther">अन्य अपेक्षा (Other Expectations)</label>
+                                <textarea id="expOther" rows="2" placeholder="इतर अपेक्षा" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="pt-4 flex justify-center">
+                        <button type="submit" class="px-8 py-4 bg-gradient-to-r from-maroon-900 to-saffron-600 text-white font-extrabold rounded-xl text-lg shadow-lg hover:scale-105 transition-all flex items-center gap-2 border border-gold-400">
+                            <i class="fa-solid fa-check-circle"></i> <span data-i18n="btnSubmit">नोंदणी करा व बायोडाटा कार्ड पहा</span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- PAGE 3: PRINTABLE FULL A4 BIODATA CARD -->
+        <section id="page-3" class="step-page space-y-6">
+
+            <div class="no-print bg-green-50 border-2 border-green-500 p-4 rounded-xl flex flex-wrap justify-between items-center gap-4 shadow-sm">
+                <div>
+                    <h3 class="font-bold text-green-900 text-lg" data-i18n="successMsg">🎉 नोंदणी यशस्वीरीत्या पूर्ण झाली!</h3>
+                    <p class="text-sm text-gray-700"><span data-i18n="regRefNo">नोंदणी संदर्भ क्रमांक (Reg No)</span>: <strong id="generatedRegNo" class="text-maroon-800 text-lg">KS-2026-1001</strong></p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="downloadPDF()" class="px-5 py-2.5 bg-saffron-600 text-white font-bold rounded-lg shadow hover:bg-saffron-700 transition flex items-center gap-2">
+                        <i class="fa-solid fa-file-pdf"></i> <span data-i18n="btnPdf">PDF डाऊनलोड</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- A4 PRINTABLE SHEET -->
+            <div id="biodata-card-container" class="bg-white p-4 rounded-xl shadow-2xl mx-auto border-2 border-black text-black flex flex-col justify-between">
+                
+                <div class="tradition-border p-3 sm:p-4 bg-white relative flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center text-[14px] font-bold border-b border-black pb-1 mb-1.5">
+                            <div class="flex gap-3">
+                                <span data-i18n="motto1">एकता</span>
+                                <span data-i18n="motto2">विश्वास</span>
+                                <span data-i18n="motto3">जबाबदारी</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <span data-i18n="motto4">जय सहस्रबाहु</span>
+                                <span class="shree-fix" data-i18n="motto5">श्री गणेशाय नमः</span>
+                                <span data-i18n="motto6">जय कलाल</span>
+                            </div>
+                        </div>
+
+                        <div class="text-center my-4 border-y-2 border-black py-2">
+                            <h2 class="text-lg sm:text-base font-extrabold leading-relaxed" data-i18n="cardMainTitle">कलाल समाज वधू-वर परिचय मेळावा २०२६-२०२७</h2>
+                        </div>
+
+                        <div class="flex justify-between items-center my-2 relative leading-relaxed">
+                            <div class="bg-black text-white font-extrabold text-lg px-5 py-1 rounded-full mx-auto shadow" data-i18n="cardBiodataTitle">
+                                वैवाहिक परिचय पत्र (BIODATA)
+                            </div>
+                            <span class="text-[12px] font-bold absolute right-1" data-i18n="cardRegNoLabel">रजि.नं.: अ-३५८-धुळे</span>
+                        </div>
+
+                        <!-- 2-Column layout for personal and family details with Photo on the right -->
+                        <div class="grid grid-cols-12 gap-3 text-sm font-semibold leading-relaxed mt-2">
+                            <div class="col-span-8 space-y-1">
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblRegNo">नोंदणी क्र.</span><span>: <strong id="prev-regNo" class="text-maroon-800 font-extrabold">KS-2026-1001</strong></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblName">नाव</span><span>: <span id="prev-fullName" class="font-bold">राहुल सुरेश कलाल</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblDob">जन्मतारीख</span><span>: <span id="prev-dob">01/01/1998</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblBirthTimePlace">जन्म वेळ / स्थळ</span><span>: <span id="prev-birthTimePlace">08:30 AM / तळोदा</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblHeightBlood">उंची / रक्तगट</span><span>: <span id="prev-heightBlood">५ फूट ६ इंच / B+</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblEdu">शिक्षण</span><span>: <span id="prev-education">B.E. Computer</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblOcc">नोकरी / व्यवसाय</span><span>: <span id="prev-occupation">सॉफ्टवेअर इंजिनिअर</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblIncome">वार्षिक उत्पन्न</span><span>: <span id="prev-income">₹ ६ लाख</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblGotraKul">गोत्र / कुलदैवत</span><span>: <span id="prev-gotraKuldaivat">कश्यप / तुळजाभवानी</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblManglik">मांगलिक</span><span>: <span id="prev-manglik">नाही</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblMarital">वैवाहिक स्थिती</span><span>: <span id="prev-maritalStatus">अविवाहित</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblFather">वडिलांचे नाव</span><span>: <span id="prev-fatherName">सुरेश कलाल</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblFatherOcc">व्यवसाय</span><span>: <span id="prev-fatherOccupation">व्यवसाय</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblMother">आईचे नाव</span><span>: <span id="prev-motherName">सुनीता कलाल</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblMotherOcc">व्यवसाय</span><span>: <span id="prev-motherOccupation">गृहिणी</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblSiblings">बहीण / भाऊ</span><span>: <span id="prev-siblings">१ भाऊ</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblSiblingsEdu">शिक्षण</span><span>: <span id="prev-siblingsEdu">Graduate</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblUncle">मामाचे नाव</span><span>: <span id="prev-maternalUncle">रमेश चौधरी</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblUncleKul">मामाचे कुळ</span><span>: <span id="prev-maternalKul">चौधरी</span></span></div>
+                                <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblAddress">पत्ता</span><span>: <span id="prev-address">तळोदा</span></span></div>
+                            </div>
+
+                            <!-- Photo Box on the Right -->
+                            <div class="col-span-4 flex flex-col justify-start">
+                                <div class="border-2 border-black rounded-lg h-52 w-full flex flex-col items-center justify-center p-1 text-center bg-gray-50 overflow-hidden relative mx-auto shadow-sm">
+                                    <img id="prev-photoImg" src="" alt="Photo" class="hidden absolute inset-0 w-full h-full object-contain rounded-lg">
+                                    <span id="prev-photoText" class="font-bold text-gray-400 text-sm" data-i18n="cardPhotoPlaceholder">फोटो</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Partner Expectations Box spanning Full Width at the bottom -->
+                        <div class="mt-2 border-2 border-black rounded-lg p-2 bg-gray-50 text-sm leading-relaxed shadow-sm">
+                            <div class="text-center font-extrabold border-b border-black pb-0.5 mb-1 text-maroon-900" data-i18n="cardExpectationsHeader">:: जीवनसाथी अपेक्षा ::</div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><span class="font-bold" data-i18n="cardExpEdu">शिक्षण:</span> <span id="prev-expEdu">-</span></div>
+                                <div><span class="font-bold" data-i18n="cardExpOcc">व्यवसाय:</span> <span id="prev-expOcc">-</span></div>
+                            </div>
+                            <div class="mt-1 border-t border-gray-300 pt-1">
+                                <span class="font-bold" data-i18n="cardExpOther">अन्य अपेक्षा:</span> <span id="prev-expOther">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-2 border-2 border-black rounded-lg p-1.5 text-sm font-bold flex justify-around items-center bg-gray-50 shadow-sm">
+                        <div class="text-maroon-900 font-extrabold" data-i18n="cardContactHeader">:: संपर्क ::</div>
+                        <div><span data-i18n="cardMobileLbl">मोबाईल</span> : <span id="prev-mobile">9876543210</span></div>
+                        <div><span data-i18n="cardWhatsappLbl">व्हॉट्सॲप</span> : <span id="prev-whatsapp">9876543210</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-maroon-900 text-gold-400 text-center py-4 px-4 text-xs sm:text-sm border-t-2 border-gold-500 flex flex-col sm:flex-row justify-center items-center gap-2 no-print">
+        <span data-i18n="footerRights">© कलाल समाज पंच व मंडळ, तळोदा जि. नंदुरबार</span>
+        <span class="hidden sm:inline">|</span>
+        <span class="font-bold text-white" data-i18n="footerDev">Designed & Developed by Pinakin Services, Taloda (+91 95914 36222)</span>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        let isRegistered = false;
+        let uploadedPhotoBase64 = "";
+
+        const translations = {
+            mr: {
+                pageTitle: "कलाल समाज वधू-वर परिचय मेळावा २०२६",
+                motto1: "एकता", motto2: "विश्वास", motto3: "जबाबदारी", motto4: "जय सहस्रबाहु", motto5: "श्री गणेशाय नमः", motto6: "जय कलाल",
+                orgName: "कलाल समाज वधू-वर परिचय मेळावा २०२६-२०२७",
+                regNoBadge: "रजि.नं.: अ-३५८-धुळे",
+                organizedBy: "आयोजक", eventName: "कलाल समाज पंच, कलाल समाज महिला मंडळ आणि कलाल समाज युवक मंडळ, तळोदा",
+                tabHome: "मुख्य पृष्ठ", tabRegister: "नोंदणी फॉर्म", tabCard: "परिचय कार्ड",
+                heroGanesh: "श्री गणेशाय नमः",
+                heroHeading: "पंचक्रोशीतील कलाल समाजात योग्य जीवनसाथीच्या शोधासाठी आयोजित भव्य वधू-वर वैवाहिक परिचय मेळावा",
+                heroSub: "आपल्या कलाल समाजातील सुयोग्य वधू-वरांसाठी एकत्र येऊन योग्य जीवनसाथी निवडण्याचे हक्काचे व्यासपीठ.",
+                lblDate: "आयोजन दिनांक", valDate: "लवकर कळवण्यात येईल",
+                lblVenue: "स्थान", valVenue: "कलाल समाज मंगल कार्यालय, तळोदा जि. नंदुरबार",
+                btnStartReg: "ऑनलाइन नोंदणी करा",
+                lblPresidentTitle: ":: आपला अध्यक्ष ::", valPresidentName: "श्री. संजय पुरुषोत्तमसा कलाल", valPresidentMobile: "9158339910",
+                lblNoticeHeader: "महत्वाची सूचना / विशेष विनंती:",
+                valNoticeBody: "सर्व समाज बांधवांना विनंती आहे की कौटुंबिक फॉर्ममधील माहिती अचूक घ्यावी. माहिती अद्ययावत ठेवण्यासाठी तसेच काही बदल किंवा दुरुस्ती असल्यास दिलेल्या कोणत्याही एका व्यक्तीशी संपर्क साधून आवश्यक ती दुरुस्ती करुन घ्यावी.",
+                valNoticeLine1: "वधू-वर परिचय मेळाव्याच्या कार्यक्रमास सर्व समाज बांधवांनी उपस्थित राहणे अनिवार्य आहे. या कार्यक्रमास यशस्वी करण्यासाठी सर्व अर्जदारांची प्रत्यक्ष उपस्थिती बंधनकारक आहे.",
+                lblContactsHeader: "संपर्कासाठी व्यक्तींची नावे व मोबाईल क्रमांक:",
+                contact1Name: "श्री. राजेंद्रभाऊसा कलाल", contact2Name: "श्री. किशोरभाऊसा कलाल", contact3Name: "श्री. दुगेशसा कलाल", contact4Name: "श्री. लकेशसा कलाल", contact5Name: "श्री. कमलेशसा कलाल",
+                formHeaderTitle: "वैवाहिक परिचय पत्र नोंदणी",
+                formHeaderSub: "कृपया खालील सर्व माहिती व्यवस्थित भरा",
+                sec1Title: "१. वैयक्तिक माहिती",
+                lblName: "संपूर्ण नाव *", lblDob: "जन्मतारीख *",
+                lblBirthTime: "जन्म वेळ *", lblBirthPlace: "जन्म स्थळ *",
+                lblHeight: "उंची *", lblBlood: "रक्तगट *",
+                lblMarital: "वैवाहिक स्थिती *", lblGotra: "गोत्र *", lblKuldaivat: "कुलदैवत *", lblManglik: "मांगलिक *",
+                lblPhoto: "पासपोर्ट साईझ फोटो अपलोड करा (कमाल ५ MB) *",
+                optSelect: "-- निवडा --", optUnmarried: "अविवाहित", optDivorced: "घटस्फोटित", optWidow: "विधवा / विधुर",
+                optNo: "नाही", optYes: "होय", optUnknown: "माहिती नाही",
+                sec2Title: "२. शिक्षण आणि नोकरी",
+                lblEdu: "शिक्षण *", lblOcc: "नोकरी / व्यवसाय *", lblIncome: "वार्षिक उत्पन्न *",
+                sec3Title: "३. कौटुंबिक व संपर्क माहिती",
+                lblFather: "वडिलांचे नाव *", lblFatherOcc: "वडिलांचा व्यवसाय",
+                lblMother: "आईचे नाव *", lblMotherOcc: "आईचा व्यवसाय",
+                lblSiblings: "बहीण / भाऊ *", lblSiblingsEdu: "भाऊ/बहिणींचे शिक्षण",
+                lblUncle: "मामाचे नाव *", lblKul: "मामाचे कुळ / आडनाव *",
+                lblAddress: "संपूर्ण पत्ता *", lblMobile: "मोबाईल नंबर *", lblWhatsapp: "व्हॉट्सॲप नंबर",
+                sec4Title: "४. जीवनसाथी अपेक्षा",
+                lblExpEdu: "अपेक्षित शिक्षण", lblExpOcc: "अपेक्षित व्यवसाय/नोकरी", lblExpOther: "अन्य अपेक्षा",
+                btnSubmit: "नोंदणी करा व बायोडाटा कार्ड पहा",
+                successMsg: "🎉 नोंदणी यशस्वीरीत्या पूर्ण झाली!", regRefNo: "नोंदणी संदर्भ क्रमांक",
+                btnPdf: "PDF डाऊनलोड",
+                cardMainTitle: "कलाल समाज वधू-वर परिचय मेळावा २०२६-२०२७",
+                cardBiodataTitle: "वैवाहिक परिचय पत्र",
+                cardRegNoLabel: "रजि.नं.: अ-३५८-धुळे",
+                cardLblRegNo: "नोंदणी क्र.", cardLblName: "नाव", cardLblDob: "जन्मतारीख", cardLblBirthTimePlace: "जन्म वेळ / स्थळ",
+                cardLblHeightBlood: "उंची / रक्तगट", cardLblEdu: "शिक्षण", cardLblOcc: "नोकरी / व्यवसाय", cardLblIncome: "वार्षिक उत्पन्न",
+                cardLblGotraKul: "गोत्र / कुलदैवत", cardLblManglik: "मांगलिक", cardLblMarital: "वैवाहिक स्थिती",
+                cardLblFather: "वडिलांचे नाव", cardLblFatherOcc: "व्यवसाय", cardLblMother: "आईचे नाव", cardLblMotherOcc: "व्यवसाय",
+                cardLblSiblings: "बहीण / भाऊ", cardLblSiblingsEdu: "शिक्षण", cardLblUncle: "मामाचे नाव", cardLblUncleKul: "मामाचे कुळ", cardLblAddress: "पत्ता",
+                cardPhotoPlaceholder: "फोटो", cardExpectationsHeader: ":: जीवनसाथी अपेक्षा ::",
+                cardExpEdu: "शिक्षण:", cardExpOcc: "व्यवसाय:", cardExpOther: "अन्य अपेक्षा:",
+                cardContactHeader: ":: संपर्क ::", cardMobileLbl: "मोबाईल", cardWhatsappLbl: "व्हॉट्सॲप",
+                footerRights: "© कलाल समाज पंच व मंडळ, तळोदा जि. नंदुरबार",
+                footerDev: "Designed & Developed by Pinakin Services, Taloda (+91 95914 36222)"
+            },
+            hi: {
+                pageTitle: "कलाल समाज वधू-वर परिचय सम्मेलन २०२६-२०२७",
+                motto1: "एकता", motto2: "विश्वास", motto3: "जिम्मेदारी", motto4: "जय सहस्रबाहु", motto5: "श्री गणेशाय नमः", motto6: "जय कलाल",
+                orgName: "कलाल समाज वधू-वर परिचय सम्मेलन २०२६-२०२७",
+                regNoBadge: "रजि.नं.: अ-३५८-धुळे",
+                organizedBy: "आयोजक", eventName: "कलाल समाज पंच, कलाल समाज महिला मंडल आणि कलाल समाज युवक मंडल, तलोदा",
+                tabHome: "मुख्य पृष्ठ", tabRegister: "पंजीकरण फॉर्म", tabCard: "परिचय कार्ड",
+                heroGanesh: "श्री गणेशाय नमः",
+                heroHeading: "पंचक्रोशी कलाल समाज में सुयोग्य जीवनसाथी की खोज के लिए आयोजित भव्य वधू-वर वैवाहिक परिचय सम्मेलन",
+                heroSub: "कलाल समाज के योग्य वर-वधुओं के लिए सुयोग्य जीवनसाथी चुनने का उत्तम मंच।",
+                lblDate: "आयोजन तिथि", valDate: "जलद जाहीर होगी",
+                lblVenue: "स्थान", valVenue: "कलाल समाज मंगल कार्यालय, तळोदा जि. नंदुरबार",
+                btnStartReg: "ऑनलाइन पंजीकरण करें",
+                lblPresidentTitle: ":: अध्यक्ष ::", valPresidentName: "श्री. संजय पुरुषोत्तमसा कलाल", valPresidentMobile: "9158339910",
+                lblNoticeHeader: "महत्वपूर्ण सूचना / विशेष अनुरोध:",
+                valNoticeBody: "सभी समाज बंधुओं से अनुरोध है कि पारिवारिक फॉर्म में दी गई जानकारी सटीक भरें। जानकारी को अद्यतन रखने अथवा किसी संशोधन हेतु दिए गए किसी भी व्यक्ति से संपर्क कर आवश्यक सुधार करवा लें।",
+                valNoticeLine1: "वधू-वर परिचय सम्मेलन के कार्यक्रम में सभी की उपस्थिति अनिवार्य है। इस कार्यक्रम को सफल बनाने के लिए सभी आवेदकों का व्यक्तिगत रूप से उपस्थित होना आवश्यक है।",
+                lblContactsHeader: "संपर्क हेतु व्यक्तियों के नाम एवं मोबाइल नंबर:",
+                contact1Name: "श्री. राजेंद्रभाऊसा कलाल", contact2Name: "श्री. किशोरभाऊसा कलाल", contact3Name: "श्री. दुगेशसा कलाल", contact4Name: "श्री. लकेशसा कलाल", contact5Name: "श्री. कमलेशसा कलाल",
+                formHeaderTitle: "वैवाहिक परिचय पत्र पंजीकरण",
+                formHeaderSub: "कृपया नीचे दी गई सभी जानकारी सावधानी से भरें",
+                sec1Title: "१. व्यक्तिगत जानकारी",
+                lblName: "पूरा नाम *", lblDob: "जन्म तिथि *",
+                lblBirthTime: "जन्म समय *", lblBirthPlace: "जन्म स्थान *",
+                lblHeight: "लंबाई *", lblBlood: "रक्त समूह *",
+                lblMarital: "वैवाहिक स्थिति *", lblGotra: "गोत्र *", lblKuldaivat: "कुलदैवत *", lblManglik: "मांगलिक *",
+                lblPhoto: "पासपोर्ट साइज फोटो अपलोड करें (अधिकतम ५ MB) *",
+                optSelect: "-- चुनें --", optUnmarried: "अविवाहित", optDivorced: "तलाकशुदा", optWidow: "विधवा / विधुर",
+                optNo: "नहीं", optYes: "हाँ", optUnknown: "ज्ञात नहीं",
+                sec2Title: "२. शिक्षा और नौकरी",
+                lblEdu: "शिक्षा *", lblOcc: "नौकरी / व्यवसाय *", lblIncome: "वार्षिक आय *",
+                sec3Title: "३. पारिवारिक व संपर्क जानकारी",
+                lblFather: "पिता का नाम *", lblFatherOcc: "पिता का व्यवसाय",
+                lblMother: "माता का नाम *", lblMotherOcc: "माता का व्यवसाय",
+                lblSiblings: "भाई / बहन *", lblSiblingsEdu: "भाई-बहनों की शिक्षा",
+                lblUncle: "मामा का नाम *", lblKul: "मामा का कुल / उपनाम *",
+                lblAddress: "पूरा पता *", lblMobile: "मोबाइल नंबर *", lblWhatsapp: "व्हाट्सएप नंबर",
+                sec4Title: "४. जीवनसाथी की अपेक्षाएं",
+                lblExpEdu: "अपेक्षित शिक्षा", lblExpOcc: "अपेक्षित व्यवसाय/नौकरी", lblExpOther: "अन्य अपेक्षाएं",
+                btnSubmit: "पंजीकरण करें और बायोडाटा कार्ड देखें",
+                successMsg: "🎉 पंजीकरण सफलतापूर्वक पूरा हुआ!", regRefNo: "पंजीकरण संदर्भ क्रमांक",
+                btnPdf: "PDF डाउनलोड",
+                cardMainTitle: "कलाल समाज वधू-वर परिचय सम्मेलन २०२६",
+                cardBiodataTitle: "वैवाहिक परिचय पत्र",
+                cardRegNoLabel: "रजि.नं.: अ-३५८-धुळे",
+                cardLblRegNo: "पंजीकरण क्र.", cardLblName: "नाम", cardLblDob: "जन्म तिथि", cardLblBirthTimePlace: "जन्म समय / स्थान",
+                cardLblHeightBlood: "लंबाई / रक्त समूह", cardLblEdu: "शिक्षा", cardLblOcc: "नौकरी / व्यवसाय", cardLblIncome: "वार्षिक आय",
+                cardLblGotraKul: "गोत्र / कुलदैवत", cardLblManglik: "मांगलिक", cardLblMarital: "वैवाहिक स्थिति",
+                cardLblFather: "पिता का नाम", cardLblFatherOcc: "व्यवसाय", cardLblMother: "माता का नाम", cardLblMotherOcc: "व्यवसाय",
+                cardLblSiblings: "भाई / बहन", cardLblSiblingsEdu: "शिक्षा", cardLblUncle: "मामा का नाम", cardLblUncleKul: "मामा का कुल", cardLblAddress: "पता",
+                cardPhotoPlaceholder: "फोटो", cardExpectationsHeader: ":: जीवनसाथी की अपेक्षाएं ::",
+                cardExpEdu: "शिक्षा:", cardExpOcc: "व्यवसाय:", cardExpOther: "अन्य अपेक्षाएं:",
+                cardContactHeader: ":: संपर्क ::", cardMobileLbl: "मोबाइल", cardWhatsappLbl: "व्हाट्सएप",
+                footerRights: "© कलाल समाज पंच व मंडळ, तळोदा जि. नंदुरबार",
+                footerDev: "Designed & Developed by Pinakin Services, Taloda (+91 95914 36222)"
+            },
+            en: {
+                pageTitle: "Kalal Samaj Vadhu-Var Parichay 2026-2027",
+                motto1: "Unity", motto2: "Trust", motto3: "Responsibility", motto4: "Jai Sahasrabahu", motto5: "Shri Ganeshay Namah", motto6: "Jai Kalal",
+                orgName: "Kalal Samaj Vadhu-Var Parichay 2026-2027 Taloda",
+                regNoBadge: "Reg.No.: A-358-Dhule",
+                organizedBy: "Organized by", eventName: "Kalal Samaj Panch, Kalal Samaj Mahila Mandal and Kalal Samaj Yuvak Mandal, Taloda",
+                tabHome: "Home", tabRegister: "Registration Form", tabCard: "Biodata Card",
+                heroGanesh: "Shri Ganeshay Namah",
+                heroHeading: "Grand Prospect Bride & Groom Matrimonial Introduction Meet Organized for Kalal Samaj",
+                heroSub: "A trusted community platform to find suitable life partners for brides and grooms of Kalal Samaj.",
+                lblDate: "Event Date", valDate: "Will be announced soon",
+                lblVenue: "Venue", valVenue: "Kalal Samaj Mangal Karyalaya, Taloda Dist. Nandurbar",
+                btnStartReg: "Start Online Registration",
+                lblPresidentTitle: ":: President ::", valPresidentName: "Shri. Sanjay Purushottamasa Kalal", valPresidentMobile: "9158339910",
+                lblNoticeHeader: "Important Notice / Special Request:",
+                valNoticeBody: "All community members are requested to provide accurate information in the form. For updates or corrections, please contact any of the designated committee members.",
+                valNoticeLine1: "We request everyone to be present at the matrimonial ceremony program. It is mandatory for all applicants to be personally present to make this a successful event.",
+                lblContactsHeader: "Contact Persons & Mobile Numbers:",
+                contact1Name: "Shri. Rajendrabhausa Kalal", contact2Name: "Shri. Kishorbhausa Kalal", contact3Name: "Shri. Durgeshsa Kalal", contact4Name: "Shri. Lakeshsa Kalal", contact5Name: "Shri. Kamleshsa Kalal",
+                formHeaderTitle: "Matrimonial Biodata Registration",
+                formHeaderSub: "Please fill in all required details carefully",
+                sec1Title: "1. Personal Details",
+                lblName: "Full Name *", lblDob: "Date of Birth *",
+                lblBirthTime: "Birth Time *", lblBirthPlace: "Birth Place *",
+                lblHeight: "Height *", lblBlood: "Blood Group *",
+                lblMarital: "Marital Status *", lblGotra: "Gotra *", lblKuldaivat: "Kuldaivat *", lblManglik: "Manglik *",
+                lblPhoto: "Upload Passport Photo (Max 5MB) *",
+                optSelect: "-- Select --", optUnmarried: "Unmarried", optDivorced: "Divorced", optWidow: "Widow / Widower",
+                optNo: "No", optYes: "Yes", optUnknown: "Unknown",
+                sec2Title: "2. Education & Career",
+                lblEdu: "Education *", lblOcc: "Occupation / Job *", lblIncome: "Annual Income *",
+                sec3Title: "3. Family & Contact Details",
+                lblFather: "Father's Name *", lblFatherOcc: "Father's Occupation",
+                lblMother: "Mother's Name *", lblMotherOcc: "Mother's Occupation",
+                lblSiblings: "Siblings *", lblSiblingsEdu: "Sibling's Education",
+                lblUncle: "Maternal Uncle Name *", lblKul: "Maternal Uncle Surname *",
+                lblAddress: "Full Address *", lblMobile: "Mobile Number *", lblWhatsapp: "WhatsApp Number",
+                sec4Title: "4. Partner Expectations",
+                lblExpEdu: "Expected Education", lblExpOcc: "Expected Job/Occupation", lblExpOther: "Other Expectations",
+                btnSubmit: "Submit & View Biodata Card",
+                successMsg: "🎉 Registration Successful!", regRefNo: "Registration Reference No",
+                btnPdf: "Download PDF",
+                cardMainTitle: "Kalal Samaj Vadhu-Var Parichay 2026-2027",
+                cardBiodataTitle: "MATRIMONIAL BIODATA",
+                cardRegNoLabel: "Reg.No.: A-358-Dhule",
+                cardLblRegNo: "Reg No", cardLblName: "Full Name", cardLblDob: "Date of Birth", cardLblBirthTimePlace: "Birth Time / Place",
+                cardLblHeightBlood: "Height / Blood", cardLblEdu: "Education", cardLblOcc: "Occupation", cardLblIncome: "Annual Income",
+                cardLblGotraKul: "Gotra / Kuldaivat", cardLblManglik: "Manglik", cardLblMarital: "Marital Status",
+                cardLblFather: "Father's Name", cardLblFatherOcc: "Occupation", cardLblMother: "Mother's Name", cardLblMotherOcc: "Occupation",
+                cardLblSiblings: "Siblings", cardLblSiblingsEdu: "Education", cardLblUncle: "Maternal Uncle", cardLblUncleKul: "Uncle Surname", cardLblAddress: "Address",
+                cardPhotoPlaceholder: "Photo", cardExpectationsHeader: ":: Partner Expectations ::",
+                cardExpEdu: "Education:", cardExpOcc: "Occupation:", cardExpOther: "Other Expectations:",
+                cardContactHeader: ":: Contact ::", cardMobileLbl: "Mobile", cardWhatsappLbl: "WhatsApp",
+                footerRights: "© Kalal Samaj Panch & Mandal, Taloda Dist. Nandurbar",
+                footerDev: "Designed & Developed by Pinakin Services, Taloda (+91 95914 36222)"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById('langSelect').value;
+            const t = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerText = t[key];
+                    // Automatically update dropdown option values to match the active language
+                    if (el.tagName === 'OPTION' && el.value !== "") {
+                        el.value = t[key];
+                    }
+                }
+            });
+        }
+
+        function switchStep(stepNum) {
+            if (stepNum === 3 && !isRegistered) {
+                alert("कृपया आधी नोंदणी फॉर्म पूर्ण भरा! (Please complete the registration form first.)");
+                switchStep(2);
+                return;
+            }
+
+            document.querySelectorAll('.step-page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + stepNum).classList.add('active');
+
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('tab-' + i).className = "px-5 py-2 rounded-lg font-extrabold text-sm sm:text-base text-white hover:bg-saffron-600 transition-all opacity-90";
+            }
+            document.getElementById('tab-' + stepNum).className = "px-5 py-2 rounded-lg font-extrabold text-sm sm:text-base bg-saffron-600 text-white shadow-md transition-all opacity-100";
+            window.scrollTo(0, 0);
+        }
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    alert("फाइलची साईझ ५ MB पेक्षा जास्त आहे! कृपया लहान फाईल अपलोड करा.");
+                    event.target.value = "";
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedPhotoBase64 = e.target.result;
+                    document.getElementById('prev-photoImg').src = uploadedPhotoBase64;
+                    document.getElementById('prev-photoImg').classList.remove('hidden');
+                    document.getElementById('prev-photoText').classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function submitBiodata(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const dob = document.getElementById('dob').value;
+            const birthTime = document.getElementById('birthTime').value;
+            const birthPlace = document.getElementById('birthPlace').value;
+            const height = document.getElementById('height').value;
+            const bloodGroup = document.getElementById('bloodGroup').value;
+            const gotra = document.getElementById('gotra').value;
+            const kuldaivat = document.getElementById('kuldaivat').value;
+
+            let currentSeq = parseInt(localStorage.getItem('ks_last_seq') || '1000'); 
+            currentSeq++; 
+            localStorage.setItem('ks_last_seq', currentSeq);
+            const randomRegNo = "KS-2026-" + currentSeq;
+
+            document.getElementById('prev-fullName').innerText = fullName;
+            document.getElementById('prev-dob').innerText = dob;
+            document.getElementById('prev-birthTimePlace').innerText = birthTime + " / " + birthPlace;
+            document.getElementById('prev-heightBlood').innerText = height + " / " + bloodGroup;
+            document.getElementById('prev-gotraKuldaivat').innerText = gotra + " / " + kuldaivat;
+            document.getElementById('prev-maritalStatus').innerText = document.getElementById('maritalStatus').value;
+            document.getElementById('prev-manglik').innerText = document.getElementById('manglik').value;
+            document.getElementById('prev-education').innerText = document.getElementById('education').value;
+            document.getElementById('prev-occupation').innerText = document.getElementById('occupation').value;
+            document.getElementById('prev-income').innerText = document.getElementById('income').value;
+            document.getElementById('prev-fatherName').innerText = document.getElementById('fatherName').value;
+            document.getElementById('prev-fatherOccupation').innerText = document.getElementById('fatherOccupation').value || '-';
+            document.getElementById('prev-motherName').innerText = document.getElementById('motherName').value;
+            document.getElementById('prev-motherOccupation').innerText = document.getElementById('motherOccupation').value || '-';
+            document.getElementById('prev-siblings').innerText = document.getElementById('siblings').value;
+            document.getElementById('prev-siblingsEdu').innerText = document.getElementById('siblingsEdu').value || '-';
+            document.getElementById('prev-maternalUncle').innerText = document.getElementById('maternalUncle').value;
+            document.getElementById('prev-maternalKul').innerText = document.getElementById('maternalKul').value;
+            document.getElementById('prev-address').innerText = document.getElementById('address').value;
+            document.getElementById('prev-mobile').innerText = document.getElementById('mobile').value;
+            document.getElementById('prev-whatsapp').innerText = document.getElementById('whatsapp').value || '-';
+            document.getElementById('prev-expEdu').innerText = document.getElementById('expEdu').value || '-';
+            document.getElementById('prev-expOcc').innerText = document.getElementById('expOcc').value || '-';
+            document.getElementById('prev-expOther').innerText = document.getElementById('expOther').value || '-';
+
+            document.getElementById('generatedRegNo').innerText = randomRegNo;
+            document.getElementById('prev-regNo').innerText = randomRegNo;
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxR09C2dK_TBpxfoFIPAdBaV9kb2ws3jbwqy2jc0gvGER0t3wkjHwxFmGrzYQIF5WNETg/exec';
+            
+            const payload = {
+                regNo: randomRegNo,
+                fullName: fullName,
+                dob: dob,
+                birthTime: birthTime,
+                birthPlace: birthPlace,
+                height: height,
+                bloodGroup: bloodGroup,
+                maritalStatus: document.getElementById('maritalStatus').value,
+                gotra: gotra,
+                kuldaivat: kuldaivat,
+                manglik: document.getElementById('manglik').value,
+                education: document.getElementById('education').value,
+                occupation: document.getElementById('occupation').value,
+                income: document.getElementById('income').value,
+                fatherName: document.getElementById('fatherName').value,
+                fatherOccupation: document.getElementById('fatherOccupation').value,
+                motherName: document.getElementById('motherName').value,
+                motherOccupation: document.getElementById('motherOccupation').value,
+                siblings: document.getElementById('siblings').value,
+                siblingsEdu: document.getElementById('siblingsEdu').value,
+                maternalUncle: document.getElementById('maternalUncle').value,
+                maternalKul: document.getElementById('maternalKul').value,
+                address: document.getElementById('address').value,
+                mobile: document.getElementById('mobile').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                expEdu: document.getElementById('expEdu').value,
+                expOcc: document.getElementById('expOcc').value,
+                expOther: document.getElementById('expOther').value,
+                photoData: uploadedPhotoBase64
+            };
+
+            const iframe = document.createElement('iframe');
+            iframe.name = 'hidden_upload_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = scriptURL;
+            form.target = 'hidden_upload_iframe';
+
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = 'data';
+            hiddenField.value = JSON.stringify(payload);
+            form.appendChild(hiddenField);
+
+            document.body.appendChild(form);
+            form.submit();
+
+            setTimeout(() => {
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
+            }, 2000);
+
+            isRegistered = true;
+            document.getElementById('lockIcon').className = "fa-solid fa-check-circle text-xs ml-1 text-green-400";
+            document.getElementById('tab-3').classList.remove('opacity-80');
+
+            switchStep(3);
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('biodata-card-container');
+            const opt = {
+                margin:       [2, 2, 2, 2],
+                filename:     'Kalal_Samaj_Biodata_2026-2027.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, letterRendering: true, scrollX: 0, scrollY: 0 },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+</body>
+</html>
