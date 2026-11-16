@@ -275,6 +275,7 @@
                                     <option value="B+">B+</option><option value="B-">B-</option>
                                     <option value="O+">O+</option><option value="O-">O-</option>
                                     <option value="AB+">AB+</option><option value="AB-">AB-</option>
+                                    <option value="Unknown">Unknown</option>
                                 </select>
                             </div>
                             <div>
@@ -353,12 +354,12 @@
                             </div>
 
                             <div>
-                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblSiblings">बहीण / भाऊ (Siblings) *</label>
-                                <input type="text" id="siblings" required placeholder="उदा. १ भाऊ, १ बहीण" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblBrotherName">भावाचे नाव (Brother's Name)</label>
+                                <input type="text" id="brotherName" placeholder="भावाचे पूर्ण नाव" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
                             </div>
                             <div>
-                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblSiblingsEdu">भाऊ / बहिणींचे शिक्षण (Siblings' Education)</label>
-                                <input type="text" id="siblingsEdu" placeholder="उदा. Graduate" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
+                                <label class="block text-sm font-bold text-gray-700" data-i18n="lblSisterName">बहिणीचे नाव (Sister's Name)</label>
+                                <input type="text" id="sisterName" placeholder="बहिणीचे पूर्ण नाव" class="w-full mt-1 p-2.5 border border-gray-300 rounded-lg">
                             </div>
 
                             <div>
@@ -481,8 +482,8 @@
                                     <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblFatherOcc">व्यवसाय</span><span>: <span id="prev-fatherOccupation">व्यवसाय</span></span></div>
                                     <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblMother">आईचे नाव</span><span>: <span id="prev-motherName">सुनीता कलाल</span></span></div>
                                     <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblMotherOcc">व्यवसाय</span><span>: <span id="prev-motherOccupation">गृहिणी</span></span></div>
-                                    <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblSiblings">बहीण / भाऊ</span><span>: <span id="prev-siblings">१ भाऊ</span></span></div>
-                                    <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblSiblingsEdu">शिक्षण</span><span>: <span id="prev-siblingsEdu">Graduate</span></span></div>
+                                    <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblBrotherName">भावाचे नाव</span><span>: <span id="prev-brotherName">-</span></span></div>
+                                    <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblSisterName">बहिणीचे नाव</span><span>: <span id="prev-sisterName">-</span></span></div>
                                     <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblUncle">मामाचे नाव</span><span>: <span id="prev-maternalUncle">रमेश चौधरी</span></span></div>
                                     <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblUncleKul">मामाचे कुळ</span><span>: <span id="prev-maternalKul">चौधरी</span></span></div>
                                     <div class="flex"><span class="w-28 font-bold" data-i18n="cardLblAddress">पत्ता</span><span>: <span id="prev-address">तळोदा</span></span></div>
@@ -571,7 +572,7 @@
                 sec3Title: "३. कौटुंबिक व संपर्क माहिती",
                 lblFather: "वडिलांचे नाव *", lblFatherOcc: "वडिलांचा व्यवसाय",
                 lblMother: "आईचे नाव *", lblMotherOcc: "आईचा व्यवसाय",
-                lblSiblings: "बहीण / भाऊ *", lblSiblingsEdu: "भाऊ / बहिणींचे शिक्षण",
+                lblBrotherName: "भावाचे नाव", lblSisterName: "बहिणीचे नाव",
                 lblUncle: "मामाचे नाव *", lblKul: "मामाचे कुळ / आडनाव *",
                 lblAddress: "संपूर्ण पत्ता *", lblMobile: "मोबाईल नंबर *", lblWhatsapp: "व्हॉट्सॲप नंबर",
                 sec4Title: "४. जीवनसाथी अपेक्षा",
@@ -586,7 +587,7 @@
                 cardLblHeightBlood: "उंची / रक्तगट", cardLblEdu: "शिक्षण", cardLblOcc: "नोकरी / व्यवसाय", cardLblIncome: "वार्षिक उत्पन्न",
                 cardLblGotraKul: "गोत्र / कुलदैवत", cardLblManglik: "मांगलिक", cardLblMarital: "वैवाहिक स्थिती",
                 cardLblFather: "वडिलांचे नाव", cardLblFatherOcc: "व्यवसाय", cardLblMother: "आईचे नाव", cardLblMotherOcc: "व्यवसाय",
-                cardLblSiblings: "बहीण / भाऊ", cardLblSiblingsEdu: "शिक्षण", cardLblUncle: "मामाचे नाव", cardLblUncleKul: "मामाचे कुळ", cardLblAddress: "पत्ता",
+                cardLblBrotherName: "भावाचे नाव", cardLblSisterName: "बहिणीचे नाव", cardLblUncle: "मामाचे नाव", cardLblUncleKul: "मामाचे कुळ", cardLblAddress: "पत्ता",
                 cardPhotoPlaceholder: "फोटो", cardExpectationsHeader: ":: जीवनसाथी अपेक्षा ::",
                 cardExpEdu: "शिक्षण:", cardExpOcc: "व्यवसाय:", cardExpOther: "अन्य अपेक्षा:",
                 cardContactHeader: ":: संपर्क ::", cardMobileLbl: "मोबाईल", cardWhatsappLbl: "व्हॉट्सॲप",
@@ -627,7 +628,7 @@
                 sec3Title: "३. पारिवारिक व संपर्क जानकारी",
                 lblFather: "पिता का नाम *", lblFatherOcc: "पिता का व्यवसाय",
                 lblMother: "माता का नाम *", lblMotherOcc: "माता का व्यवसाय",
-                lblSiblings: "भाई / बहन *", lblSiblingsEdu: "भाई-बहनों की शिक्षा",
+                lblBrotherName: "भाई का नाम", lblSisterName: "बहन का नाम",
                 lblUncle: "मामा का नाम *", lblKul: "मामा का कुल / उपनाम *",
                 lblAddress: "पूरा पता *", lblMobile: "मोबाइल नंबर *", lblWhatsapp: "व्हाट्सएप नंबर",
                 sec4Title: "४. जीवनसाथी की अपेक्षाएं",
@@ -642,7 +643,7 @@
                 cardLblHeightBlood: "लंबाई / रक्त समूह", cardLblEdu: "शिक्षा", cardLblOcc: "नौकरी / व्यवसाय", cardLblIncome: "वार्षिक आय",
                 cardLblGotraKul: "गोत्र / कुलदैवत", cardLblManglik: "मांगलिक", cardLblMarital: "वैवाहिक स्थिति",
                 cardLblFather: "पिता का नाम", cardLblFatherOcc: "व्यवसाय", cardLblMother: "माता का नाम", cardLblMotherOcc: "व्यवसाय",
-                cardLblSiblings: "भाई / बहन", cardLblSiblingsEdu: "शिक्षा", cardLblUncle: "मामा का नाम", cardLblUncleKul: "मामा का कुल", cardLblAddress: "पता",
+                cardLblBrotherName: "भाई का नाम", cardLblSisterName: "बहन का नाम", cardLblUncle: "मामा का नाम", cardLblUncleKul: "मामा का कुल", cardLblAddress: "पता",
                 cardPhotoPlaceholder: "फोटो", cardExpectationsHeader: ":: जीवनसाथी की अपेक्षाएं ::",
                 cardExpEdu: "शिक्षा:", cardExpOcc: "व्यवसाय:", cardExpOther: "अन्य अपेक्षाएं:",
                 cardContactHeader: ":: संपर्क ::", cardMobileLbl: "मोबाइल", cardWhatsappLbl: "व्हाट्सएप",
@@ -683,7 +684,7 @@
                 sec3Title: "3. Family & Contact Details",
                 lblFather: "Father's Name *", lblFatherOcc: "Father's Occupation",
                 lblMother: "Mother's Name *", lblMotherOcc: "Mother's Occupation",
-                lblSiblings: "Siblings *", lblSiblingsEdu: "Sibling's Education",
+                lblBrotherName: "Brother's Name", lblSisterName: "Sister's Name",
                 lblUncle: "Maternal Uncle Name *", lblKul: "Maternal Uncle Surname *",
                 lblAddress: "Full Address *", lblMobile: "Mobile Number *", lblWhatsapp: "WhatsApp Number",
                 sec4Title: "4. Partner Expectations",
@@ -698,7 +699,7 @@
                 cardLblHeightBlood: "Height / Blood", cardLblEdu: "Education", cardLblOcc: "Occupation", cardLblIncome: "Annual Income",
                 cardLblGotraKul: "Gotra / Kuldaivat", cardLblManglik: "Manglik", cardLblMarital: "Marital Status",
                 cardLblFather: "Father's Name", cardLblFatherOcc: "Occupation", cardLblMother: "Mother's Name", cardLblMotherOcc: "Occupation",
-                cardLblSiblings: "Siblings", cardLblSiblingsEdu: "Education", cardLblUncle: "Maternal Uncle", cardLblUncleKul: "Uncle Surname", cardLblAddress: "Address",
+                cardLblBrotherName: "Brother's Name", cardLblSisterName: "Sister's Name", cardLblUncle: "Maternal Uncle", cardLblUncleKul: "Uncle Surname", cardLblAddress: "Address",
                 cardPhotoPlaceholder: "Photo", cardExpectationsHeader: ":: Partner Expectations ::",
                 cardExpEdu: "Education:", cardExpOcc: "Occupation:", cardExpOther: "Other Expectations:",
                 cardContactHeader: ":: Contact ::", cardMobileLbl: "Mobile", cardWhatsappLbl: "WhatsApp",
@@ -803,8 +804,8 @@
             document.getElementById('prev-fatherOccupation').innerText = document.getElementById('fatherOccupation').value || '-';
             document.getElementById('prev-motherName').innerText = document.getElementById('motherName').value;
             document.getElementById('prev-motherOccupation').innerText = document.getElementById('motherOccupation').value || '-';
-            document.getElementById('prev-siblings').innerText = document.getElementById('siblings').value;
-            document.getElementById('prev-siblingsEdu').innerText = document.getElementById('siblingsEdu').value || '-';
+            document.getElementById('prev-brotherName').innerText = document.getElementById('brotherName').value || '-';
+            document.getElementById('prev-sisterName').innerText = document.getElementById('sisterName').value || '-';
             document.getElementById('prev-maternalUncle').innerText = document.getElementById('maternalUncle').value;
             document.getElementById('prev-maternalKul').innerText = document.getElementById('maternalKul').value;
             document.getElementById('prev-address').innerText = document.getElementById('address').value;
@@ -838,8 +839,8 @@
                 fatherOccupation: document.getElementById('fatherOccupation').value,
                 motherName: document.getElementById('motherName').value,
                 motherOccupation: document.getElementById('motherOccupation').value,
-                siblings: document.getElementById('siblings').value,
-                siblingsEdu: document.getElementById('siblingsEdu').value,
+                brotherName: document.getElementById('brotherName').value,
+                sisterName: document.getElementById('sisterName').value,
                 maternalUncle: document.getElementById('maternalUncle').value,
                 maternalKul: document.getElementById('maternalKul').value,
                 address: document.getElementById('address').value,
