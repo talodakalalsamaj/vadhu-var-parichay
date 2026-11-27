@@ -759,7 +759,7 @@
             }
         }
 
-        function submitBiodata(e) {
+        async function submitBiodata(e) {
             e.preventDefault();
 
             // --- 1. 10-DIGIT MOBILE NUMBER VALIDATION ---
@@ -776,6 +776,11 @@
                 mobileInput.classList.remove('border-red-500', 'ring-2', 'ring-red-500'); // Remove highlight if correct
             }
 
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+
             const fullName = document.getElementById('fullName').value;
             const dob = document.getElementById('dob').value;
             const birthTime = document.getElementById('birthTime').value;
@@ -784,11 +789,6 @@
             const bloodGroup = document.getElementById('bloodGroup').value;
             const gotra = document.getElementById('gotra').value;
             const kuldaivat = document.getElementById('kuldaivat').value;
-
-            let currentSeq = parseInt(localStorage.getItem('ks_last_seq') || '1000'); 
-            currentSeq++; 
-            localStorage.setItem('ks_last_seq', currentSeq);
-            const randomRegNo = "KS-2026-" + currentSeq;
 
             document.getElementById('prev-fullName').innerText = fullName;
             document.getElementById('prev-dob').innerText = dob;
@@ -815,13 +815,9 @@
             document.getElementById('prev-expOcc').innerText = document.getElementById('expOcc').value || '-';
             document.getElementById('prev-expOther').innerText = document.getElementById('expOther').value || '-';
 
-            document.getElementById('generatedRegNo').innerText = randomRegNo;
-            document.getElementById('prev-regNo').innerText = randomRegNo;
-
             const scriptURL = 'https://script.google.com/macros/s/AKfycbxR09C2dK_TBpxfoFIPAdBaV9kb2ws3jbwqy2jc0gvGER0t3wkjHwxFmGrzYQIF5WNETg/exec';
-            
+
             const payload = {
-                regNo: randomRegNo,
                 fullName: fullName,
                 dob: dob,
                 birthTime: birthTime,
@@ -852,39 +848,39 @@
                 photoData: uploadedPhotoBase64
             };
 
-            const iframe = document.createElement('iframe');
-            iframe.name = 'hidden_upload_iframe';
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
+            try {
+                const formBody = new URLSearchParams();
+                formBody.append('data', JSON.stringify(payload));
 
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = scriptURL;
-            form.target = 'hidden_upload_iframe';
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formBody
+                });
+                const result = await response.json();
 
-            const hiddenField = document.createElement('input');
-            hiddenField.type = 'hidden';
-            hiddenField.name = 'data';
-            hiddenField.value = JSON.stringify(payload);
-            form.appendChild(hiddenField);
+                if (result.result !== 'success' || !result.regNo) {
+                    throw new Error(result.message || 'Failed to assign registration number');
+                }
 
-            document.body.appendChild(form);
-            form.submit();
+                document.getElementById('generatedRegNo').innerText = result.regNo;
+                document.getElementById('prev-regNo').innerText = result.regNo;
 
-            setTimeout(() => {
-                document.body.removeChild(form);
-                document.body.removeChild(iframe);
-            }, 2000);
+                // ---TO RESET THE FORM FOR NEW ENTRIES ---
+                document.getElementById('biodataForm').reset();
+                uploadedPhotoBase64 = "";
 
-            // ---TO RESET THE FORM FOR NEW ENTRIES ---
-            document.getElementById('biodataForm').reset();
-            uploadedPhotoBase64 = "";
+                isRegistered = true;
+                document.getElementById('lockIcon').className = "fa-solid fa-check-circle text-xs ml-1 text-green-400";
+                document.getElementById('tab-3').classList.remove('opacity-80');
 
-            isRegistered = true;
-            document.getElementById('lockIcon').className = "fa-solid fa-check-circle text-xs ml-1 text-green-400";
-            document.getElementById('tab-3').classList.remove('opacity-80');
-
-            switchStep(3);
+                switchStep(3);
+            } catch (err) {
+                alert("⚠️ नोंदणी करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा. (Error submitting registration. Please try again.)");
+                console.error(err);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHtml;
+            }
         }
 
         function downloadPDF() {
